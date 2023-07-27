@@ -221,15 +221,15 @@ console.log(SonDegerlendirmeyiAl(degerlendirmeler));
 
 function PuanaGoreDegerlendirmeAl(dizi, p) {
   let yeni_dizi = [];
-  let s = p + 1;
   for (let i = 0; i < dizi.length; i++) {
-    if (p <= dizi[i].puan && s > dizi[i].puan) {
-      yeni_dizi = dizi[i];
+    let verilenPuan = Math.floor(dizi[i].puan);
+    if (verilenPuan == p) {
+      yeni_dizi.push(dizi[i]);
     }
-    console.log(yeni_dizi);
   }
+  return yeni_dizi;
 }
-//PuanaGoreDegerlendirmeAl(degerlendirmeler, 4);
+console.log(PuanaGoreDegerlendirmeAl(degerlendirmeler, 3));
 
 /*  BONUS 2:    
 	UzunDegerlendirmeleriAl fonksiyonuna aşağıdakileri uygulayın:
@@ -239,19 +239,17 @@ function PuanaGoreDegerlendirmeAl(dizi, p) {
 */
 
 function UzunDegerlendirmeleriAl(dizi) {
-  let bosluk = 0;
+  let sonuc = [];
   for (let i = 0; i < dizi.length; i++) {
-    for (let harf of dizi[i].geribildirim) {
-      if (harf == " ") {
-        bosluk++;
-        if (bosluk > 13) {
-          return dizi[i];
-        }
-      }
+    let kelimeler = dizi[i].geribildirim.split(" ");
+    if (kelimeler.length > 15) {
+      sonuc.push(dizi[i]);
     }
   }
+  return sonuc;
 }
-console.log(UzunDegerlendirmeleriAl(degerlendirmeler));
+
+//console.log(UzunDegerlendirmeleriAl(degerlendirmeler));
 
 /*  BONUS 3:  
 	Bu ek görevde degerlendirmeler dizisi kullanılmayacak!  Bu görevde kendi nesnenizi yaratmanız gerekmektedir.
