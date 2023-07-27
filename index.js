@@ -23,14 +23,14 @@ function MenuElemaniOlustur(a, b, c) {
     fiyat: b,
     kategori: c,
   };
-  return burger;
+  return nesne;
 }
 
-// console.log(MenuElemaniOlustur("Cheeseburger", 96, "Burgerler"));
-// console.log(MenuElemaniOlustur("Suffle", 120, "Tatlılar"));
-// console.log(
-//   MenuElemaniOlustur("Iced White Chocolate Mocha", 70, "Soğuk Kahveler")
-// );
+console.log(MenuElemaniOlustur("Cheeseburger", 96, "Burgerler"));
+console.log(MenuElemaniOlustur("Suffle", 120, "Tatlılar"));
+console.log(
+  MenuElemaniOlustur("Iced White Chocolate Mocha", 70, "Soğuk Kahveler")
+);
 
 /*  Görev 1b (otomatik test yok): 
 	Fonksiyonu çağırın!
@@ -58,18 +58,18 @@ const burger = {
   isim: "Burger",
   fiyat: 18,
   kategori: "Öğle Yemeği",
-  indirim: function (a) {
+  indirim: function (x) {
     let indirimliFiyat;
-    if (a == "öğretmen" || a == "öğrenci") {
+    if (x == "öğretmen" || x == "öğrenci") {
       indirimliFiyat = this.fiyat - this.fiyat * 0.25;
       return indirimliFiyat;
-    } else if (a == "diğer") {
+    } else if (x == "diğer") {
       indirimliFiyat = this.fiyat - this.fiyat * 0.1;
       return indirimliFiyat;
     }
   },
 };
-//console.log(burger.indirim("diğer"));
+console.log(burger.indirim("diğer"));
 ///////////////Değerlendirmeler (MVP)///////////////////
 const degerlendirmeler = [
   {
@@ -149,14 +149,14 @@ function DegerlendirmeEkle(dizi, a, b, c) {
   dizi.push(nesne);
   return dizi;
 }
-// console.log(
-//   DegerlendirmeEkle(
-//     degerlendirmeler,
-//     "Gülbeyaz",
-//     5,
-//     "Çok nezih bir ortamı var.Kahvenizi ve tatlınızı alıp kod yazmak için hoş bir ortam.Ayrıca suffle şahane!"
-//   )
-// );
+console.log(
+  DegerlendirmeEkle(
+    degerlendirmeler,
+    "Gülbeyaz",
+    5,
+    "Çok nezih bir ortamı var.Kahvenizi ve tatlınızı alıp kod yazmak için hoş bir ortam.Ayrıca suffle şahane!"
+  )
+);
 /*  Görev 6: 
 	Dizideki değerlendirmelerin anahtarına(key,index) bağlı olarak bir değerlendirme döndüren bir fonksiyon yazın
 	
@@ -177,7 +177,7 @@ function AnahtardanDegerlendirmeAl(dizi, index) {
   );
 }
 
-//console.log(AnahtardanDegerlendirmeAl(degerlendirmeler, 8));
+console.log(AnahtardanDegerlendirmeAl(degerlendirmeler, 8));
 /*  Görev 7:  
 	Diziden en son değerlendirmeyi döndüren adı `SonDegerlendirmeyiAl` olan bir fonksiyon yazın 
 	
