@@ -18,7 +18,7 @@ const serpmeKahvalti = {
 */
 
 function MenuElemaniOlustur(a, b, c) {
-  const burger = {
+  const nesne = {
     isim: a,
     fiyat: b,
     kategori: c,
@@ -26,7 +26,11 @@ function MenuElemaniOlustur(a, b, c) {
   return burger;
 }
 
-console.log(MenuElemaniOlustur("Cheeseburger", 96, "Burgerler"));
+// console.log(MenuElemaniOlustur("Cheeseburger", 96, "Burgerler"));
+// console.log(MenuElemaniOlustur("Suffle", 120, "Tatlılar"));
+// console.log(
+//   MenuElemaniOlustur("Iced White Chocolate Mocha", 70, "Soğuk Kahveler")
+// );
 
 /*  Görev 1b (otomatik test yok): 
 	Fonksiyonu çağırın!
@@ -39,7 +43,7 @@ console.log(MenuElemaniOlustur("Cheeseburger", 96, "Burgerler"));
 */
 
 /* Görev 2: 
-	Özel bir öğle yemeği yiyorsun! Öğretmen ve öğrencilere %25, diğer kişilere %10 indirim var. Aşağıdaki burger nesnesine, indirimi fiyatı otomatik olarak hesaplayan bir metot ekleyin.
+	Özel bir öğle yemeği yiyorsun! Öğretmen ve öğrencilere %25, diğer kişilere %10 indirim var. Aşağıdaki burger nesnesine, indirimli fiyatı otomatik olarak hesaplayan bir metot ekleyin.
 	
 	burger nesnesine aşağıdakileri uygulayın:
 	1. burger nesnesine adı indirim olan bir metot ekleyin
@@ -54,8 +58,18 @@ const burger = {
   isim: "Burger",
   fiyat: 18,
   kategori: "Öğle Yemeği",
+  indirim: function (a) {
+    let indirimliFiyat;
+    if (a == "öğretmen" || a == "öğrenci") {
+      indirimliFiyat = this.fiyat - this.fiyat * 0.25;
+      return indirimliFiyat;
+    } else if (a == "diğer") {
+      indirimliFiyat = this.fiyat - this.fiyat * 0.1;
+      return indirimliFiyat;
+    }
+  },
 };
-
+console.log(burger.indirim("diğer"));
 ///////////////Değerlendirmeler (MVP)///////////////////
 const degerlendirmeler = [
   {
