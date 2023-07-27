@@ -127,7 +127,7 @@ const degerlendirmeler = [
 */
 degerlendirmeler[7].geribildirim =
   "bu mekan bir harika dostum, yine de garsonun gülümsememesinden puan kırdım";
-//console.log(degerlendirmeler[7].geribildirim);
+console.log(degerlendirmeler[7].geribildirim);
 
 /*  Görev 5: 
 	isim, puan, geribildirim'i içeren bir değerlendirme nesnesi oluşturup, yeni değerlendirmeyi mevcut dizinin(array) sonuna ekleyip sonuç dizisini döndüren bir fonksiyon tanımlayın. 
@@ -149,14 +149,14 @@ function DegerlendirmeEkle(dizi, a, b, c) {
   dizi.push(nesne);
   return dizi;
 }
-console.log(
-  DegerlendirmeEkle(
-    degerlendirmeler,
-    "Gülbeyaz",
-    5,
-    "Çok nezih bir ortamı var.Kahvenizi ve tatlınızı alıp kod yazmak için hoş bir ortam.Ayrıca suffle şahane!"
-  )
-);
+// console.log(
+//   DegerlendirmeEkle(
+//     degerlendirmeler,
+//     "Gülbeyaz",
+//     5,
+//     "Çok nezih bir ortamı var.Kahvenizi ve tatlınızı alıp kod yazmak için hoş bir ortam.Ayrıca suffle şahane!"
+//   )
+// );
 /*  Görev 6: 
 	Dizideki değerlendirmelerin anahtarına(key,index) bağlı olarak bir değerlendirme döndüren bir fonksiyon yazın
 	
@@ -176,7 +176,8 @@ function AnahtardanDegerlendirmeAl(dizi, index) {
     dizi[index].geribildirim
   );
 }
-console.log(AnahtardanDegerlendirmeAl(degerlendirmeler, 8));
+
+//console.log(AnahtardanDegerlendirmeAl(degerlendirmeler, 8));
 /*  Görev 7:  
 	Diziden en son değerlendirmeyi döndüren adı `SonDegerlendirmeyiAl` olan bir fonksiyon yazın 
 	
@@ -189,10 +190,16 @@ console.log(AnahtardanDegerlendirmeAl(degerlendirmeler, 8));
 	Not: Eğer 4. görevi başarıyla yaptıysanız kişinin geribildirimi boş görünmemeli
 */
 
-function SonDegerlendirmeyiAl(/*Kodlar buraya*/) {
-  /*Kodlar buraya*/
+function SonDegerlendirmeyiAl(dizi) {
+  return (
+    dizi[dizi.length - 1].isim +
+    " isimli kişi " +
+    dizi[dizi.length - 1].puan +
+    " puan verdi ve şunları yazdı: " +
+    dizi[dizi.length - 1].geribildirim
+  );
 }
-
+console.log(SonDegerlendirmeyiAl(degerlendirmeler));
 /////////////// BONUS  GÖRVLER////////////////////
 
 /**  BONUS 1:  
