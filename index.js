@@ -17,11 +17,11 @@ const serpmeKahvalti = {
 	Örnek MenuElemaniOlustur('Cheeseburger', 8, 'Burgerler') şunu döndürmeli: {isim: 'Cheeseburger', fiyat: 8, kategori: 'Burgerler'}
 */
 
-function MenuElemaniOlustur(a, b, c) {
+function MenuElemaniOlustur(isim, fiyat, kategori) {
   const nesne = {
-    isim: a,
-    fiyat: b,
-    kategori: c,
+    isim: isim,
+    fiyat: fiyat,
+    kategori: kategori,
   };
   return nesne;
 }
@@ -58,12 +58,15 @@ const burger = {
   isim: "Burger",
   fiyat: 18,
   kategori: "Öğle Yemeği",
-  indirim: function (x) {
+  indirim: function (meslek) {
     let indirimliFiyat;
-    if (x == "öğretmen" || x == "öğrenci") {
+    if (
+      meslek.toLowerCase() == "öğretmen" ||
+      meslek.toLowerCase() == "öğrenci"
+    ) {
       indirimliFiyat = this.fiyat - this.fiyat * 0.25;
       return indirimliFiyat;
-    } else if (x == "diğer") {
+    } else if (meslek.toLowerCase() == "diğer") {
       indirimliFiyat = this.fiyat - this.fiyat * 0.1;
       return indirimliFiyat;
     }
@@ -216,9 +219,17 @@ console.log(SonDegerlendirmeyiAl(degerlendirmeler));
 	]
 */
 
-function PuanaGoreDegerlendirmeAl(/* Kodlar buraya */) {
-  /* Kodlar buraya */
+function PuanaGoreDegerlendirmeAl(dizi, p) {
+  let yeni_dizi = [];
+  let s = p + 1;
+  for (let i = 0; i < dizi.length; i++) {
+    if (p <= dizi[i].puan && s > dizi[i].puan) {
+      yeni_dizi = dizi[i];
+    }
+    console.log(yeni_dizi);
+  }
 }
+//PuanaGoreDegerlendirmeAl(degerlendirmeler, 4);
 
 /*  BONUS 2:    
 	UzunDegerlendirmeleriAl fonksiyonuna aşağıdakileri uygulayın:
@@ -227,9 +238,20 @@ function PuanaGoreDegerlendirmeAl(/* Kodlar buraya */) {
 	
 */
 
-function UzunDegerlendirmeleriAl(/* Kodlar buraya */) {
-  /* Kodlar buraya */
+function UzunDegerlendirmeleriAl(dizi) {
+  let bosluk = 0;
+  for (let i = 0; i < dizi.length; i++) {
+    for (let harf of dizi[i].geribildirim) {
+      if (harf == " ") {
+        bosluk++;
+        if (bosluk > 13) {
+          return dizi[i];
+        }
+      }
+    }
+  }
 }
+console.log(UzunDegerlendirmeleriAl(degerlendirmeler));
 
 /*  BONUS 3:  
 	Bu ek görevde degerlendirmeler dizisi kullanılmayacak!  Bu görevde kendi nesnenizi yaratmanız gerekmektedir.
